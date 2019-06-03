@@ -1,8 +1,15 @@
-/* eslint-disable react/jsx-filename-extension */
-import React from 'react';
+import React, { PureComponent } from 'react';
+import Viewer from '../components/viewer';
 
-function Home() {
-  return <div>Welcome to Next.js!</div>;
+class Index extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { };
+  }
+
+  render() {
+    return (<Viewer />);
+  }
 }
 
-export default Home;
+export default Index;

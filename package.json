@@ -5,10 +5,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
     "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "test:cov": "npm test -- --coverage"
+    "start": "npm run build && fun local start",
+    "deploy": "npm run build && fun deploy"
   },
   "author": "",
   "license": "ISC",
@@ -25,8 +24,12 @@
     "prettier": "^1.16.4"
   },
   "dependencies": {
+    "@webserverless/fc-express": "0.0.8",
+    "express": "^4.17.1",
     "lodash": "^4.17.11",
     "next": "^8.1.0",
+    "next-routes": "^1.4.2",
+    "raw-body": "^2.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

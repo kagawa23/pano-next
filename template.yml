@@ -1,0 +1,24 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  jr-alpha-fc-rendering: # 用户自定义的服务名称，规范<项目名>-<环境名>-<服务名>，其中服务名=gitrepo名。
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: 'This is a fc playground for render'
+      Role: 'acs:ram::1986901577758888:role/fc-service-1538052165088-role'
+      LogConfig:
+        Project: ezhome-alpha-logs
+        Logstore: ezhome-alpha-logs
+    next-demo: # function name
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: fc.handler
+        Runtime: nodejs8
+        CodeUri: '.'
+        Timeout: 60
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods: ['POST', 'GET']
